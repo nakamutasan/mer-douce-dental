@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>MER DOUCE DENTAL CLINIC | メール・ドゥース・デンタルクリニック</title>
+  <meta name="description" content="MER DOUCE DENTAL CLINIC（ポートフォリオ用の見本サイトです）。美しさは、細部に宿る。">
+  <meta name="theme-color" content="#e9dcc6">
+
+  <!-- 文字のデザイン（Google Fonts） -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@200;300;400;500&family=Zen+Kaku+Gothic+New:wght@300;400;500&family=Zen+Old+Mincho:wght@400;500&display=swap" rel="stylesheet">
+  <!-- 背景は、明るいシャンパンゴールド（光に包まれた、ゴージャスな空間） -->
+  <script>
+    document.documentElement.classList.add('theme-champagne');
+    // 最初の演出（オープニング）は、そのタブで初めて開いたときだけ。「動きを減らす」設定の人には出さない
+    try {
+      if (!sessionStorage.getItem('md-opened') && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        document.documentElement.classList.add('opening-on');
+        sessionStorage.setItem('md-opened', '1');
+      }
+    } catch (e) {}
+  </script>
+  <link rel="stylesheet" href="style.css?v=16">
+  <!-- トップの歯の写真を、先に読み込みはじめる（表示を速くするため） -->
+  <link rel="preload" as="image" href="images/hero-wide-gold.jpg" media="(min-aspect-ratio: 1/1)">
+  <link rel="preload" as="image" href="images/hero-tall-gold.jpg" media="(max-aspect-ratio: 1/1)">
+
+</head>
+<body>
+
+  <a href="#main" class="skip-link">本文へ移動</a>
+
+  <!-- オープニング演出：シャンパンゴールドの幕にロゴが光り、幕が上下に開いてトップ画面が現れる -->
+  <div class="opening" aria-hidden="true">
+    <div class="op-panel op-top"></div>
+    <div class="op-panel op-bot"></div>
+    <div class="op-seam"></div>
+    <div class="op-center">
+      <span class="op-line"></span>
+      <p class="op-logo">
+        <span class="op-main">MER DOUCE</span>
+        <span class="op-sub">DENTAL CLINIC</span>
+      </p>
+      <span class="op-line op-line-b"></span>
+    </div>
+    <span class="op-spark" style="--x: 30%; --y: 34%; --d: 0.5s"></span>
+    <span class="op-spark" style="--x: 68%; --y: 30%; --d: 0.9s"></span>
+    <span class="op-spark" style="--x: 22%; --y: 66%; --d: 1.2s"></span>
+    <span class="op-spark" style="--x: 76%; --y: 62%; --d: 0.7s"></span>
+    <span class="op-spark" style="--x: 50%; --y: 22%; --d: 1.5s"></span>
+    <span class="op-spark" style="--x: 44%; --y: 76%; --d: 1.0s"></span>
+  </div>
+
+  <!-- トップの歯の写真（ページのうしろに、画面いっぱいに固定）
+       写真の上に「光のゆらぎ」と「金の光の粒」を重ねて、動きを出します -->
+  <div class="hero-visual" aria-hidden="true">
+    <div class="hv-move">
+      <div class="hv-drift">
+        <picture>
+          <source media="(max-aspect-ratio: 1/1)" srcset="images/hero-tall-gold.jpg" width="941" height="1672">
+          <img class="hv-photo" src="images/hero-wide-gold.jpg" width="1672" height="941" alt="" decoding="async" fetchpriority="high">
+        </picture>
+        <div class="hv-beam"></div>
+        <div class="hv-halo"></div>
+      </div>
+    </div>
+    <canvas class="hv-sparks"></canvas>
+  </div>
+
+  <!-- ヘッダー（極限までシンプルに） -->
+  <header class="header">
+    <a href="#top" class="logo" aria-label="MER DOUCE DENTAL CLINIC トップへ">
+      <span class="logo-main">MER DOUCE</span>
+      <span class="logo-sub">DENTAL CLINIC</span>
+    </a>
+    <nav class="nav" id="site-nav" aria-label="メインメニュー">
+      <ul>
+        <li><a href="#philosophy">理念</a></li>
+        <li><a href="#treatment">診療内容</a></li>
+        <li><a href="#anatomy">歯の構造</a></li>
+        <li><a href="#doctor">医師紹介</a></li>
+        <li><a href="#access">アクセス</a></li>
+      </ul>
+    </nav>
+    <a href="#reservation" class="btn-reserve">ご予約</a>
+    <button type="button" class="menu-toggle" aria-label="メニューを開く" aria-expanded="false" aria-controls="site-nav"><span></span><span></span></button>
+  </header>
+
+  <main id="main">
+
+    <!-- ===== SECTION 01：HERO ===== -->
+    <section id="top" class="hero" aria-label="MER DOUCE DENTAL CLINIC">
+      <p class="hero-index" aria-hidden="true"><span>01</span>TOOTH ARCHITECTURE</p>
+
+      <div class="hero-copy">
+        <p class="hero-en">BEYOND THE TOOTH.</p>
+        <h1 class="hero-ja">美しさは、<br>細部に宿る。</h1>
+      </div>
+
+      <div class="hero-side">
+        <p class="hero-name">MER DOUCE<br>DENTAL CLINIC</p>
+        <a href="#reservation" class="hero-link">ご予約・ご相談<span aria-hidden="true">→</span></a>
+      </div>
+
+      <p class="hero-scroll" aria-hidden="true"><span></span>SCROLL</p>
+    </section>
+
+    <!-- ===== SECTION 02：PHILOSOPHY（理念） ===== -->
+    <section id="philosophy" class="section philosophy">
+      <div class="sec-head reveal">
+        <p class="sec-index"><span>02</span>PHILOSOPHY</p>
+        <h2 class="sec-title">歯を、建築のように。</h2>
+      </div>
+      <div class="philo-body">
+        <p class="philo-lead reveal">一本の歯は、何層もの構造が、<br>0.1ミリ単位で組み上がった、小さな建築です。<br>私たちは、その設計図を読み解くところから、<br>治療をはじめます。</p>
+        <ol class="philo-list">
+          <li class="reveal">
+            <span class="philo-num">I</span>
+            <p class="philo-en">PRECISION</p>
+            <h3>精密であること</h3>
+            <p>拡大して見る、測る、確かめる。見えない誤差を残さないことが、長く使える歯への近道だと考えています。</p>
+          </li>
+          <li class="reveal">
+            <span class="philo-num">II</span>
+            <p class="philo-en">LONGEVITY</p>
+            <h3>長く守ること</h3>
+            <p>治療して終わりではなく、10年後の口元まで見すえた計画を。削る量はできるだけ少なく、残せる歯を残します。</p>
+          </li>
+          <li class="reveal">
+            <span class="philo-num">III</span>
+            <p class="philo-en">AESTHETICS</p>
+            <h3>美しくあること</h3>
+            <p>白さだけでなく、形・透明感・光の返し方まで。自然に見えることこそが、いちばん美しいと考えます。</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ===== SECTION 03：TREATMENT（診療内容） ===== -->
+    <section id="treatment" class="section treatment">
+      <div class="sec-head reveal">
+        <p class="sec-index"><span>03</span>TREATMENT</p>
+        <h2 class="sec-title">診療内容</h2>
+      </div>
+      <ul class="treat-grid">
+        <li class="treat-card reveal">
+          <p class="treat-en">GENERAL</p>
+          <h3>一般歯科</h3>
+          <p>むし歯・歯周病の治療。痛みに配慮し、できるだけ削らない治療を心がけます。</p>
+        </li>
+        <li class="treat-card reveal">
+          <p class="treat-en">AESTHETIC</p>
+          <h3>審美歯科</h3>
+          <p>セラミックの被せ物・詰め物で、色や形を自然な美しさに整えます。</p>
+        </li>
+        <li class="treat-card reveal">
+          <p class="treat-en">IMPLANT</p>
+          <h3>インプラント</h3>
+          <p>失った歯の代わりに、あごの骨に人工の歯の根を入れる治療です。</p>
+        </li>
+        <li class="treat-card reveal">
+          <p class="treat-en">ORTHODONTICS</p>
+          <h3>矯正歯科</h3>
+          <p>目立ちにくいマウスピース矯正など、生活に合わせた方法をご提案します。</p>
+        </li>
+        <li class="treat-card reveal">
+          <p class="treat-en">PREVENTION</p>
+          <h3>予防歯科</h3>
+          <p>定期的なクリーニングと検診で、むし歯や歯周病を未然に防ぎます。</p>
+        </li>
+        <li class="treat-card reveal">
+          <p class="treat-en">WHITENING</p>
+          <h3>ホワイトニング</h3>
+          <p>歯を削らずに、薬剤の力で本来の白さへ。医院と自宅の2つの方法があります。</p>
+        </li>
+      </ul>
+    </section>
+
+    <!-- ===== SECTION 04：ANATOMY（歯の構造） ===== -->
+    <section id="anatomy" class="section anatomy">
+      <div class="sec-head reveal">
+        <p class="sec-index"><span>04</span>ANATOMY</p>
+        <h2 class="sec-title">見えているのは、<br class="sp-only">ほんの一部。</h2>
+      </div>
+      <div class="anat-wrap">
+        <figure class="anat-figure reveal">
+          <!-- 奥歯の断面図（自作のイラスト） -->
+          <svg viewBox="0 0 520 520" role="img" aria-labelledby="anat-title">
+            <title id="anat-title">奥歯の断面図。上からエナメル質、象牙質、歯髄、歯肉、歯槽骨。</title>
+            <defs>
+              <linearGradient id="g-bone" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#4a4036"/>
+                <stop offset="1" stop-color="#4a4036" stop-opacity="0"/>
+              </linearGradient>
+              <linearGradient id="g-enamel" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#fffaf0"/>
+                <stop offset="1" stop-color="#e6dac2"/>
+              </linearGradient>
+              <pattern id="p-bone" width="10" height="10" patternUnits="userSpaceOnUse">
+                <circle cx="3" cy="3" r="1.1" fill="#6b5d4c"/>
+                <circle cx="8" cy="7" r="0.8" fill="#6b5d4c"/>
+              </pattern>
+            </defs>
+            <g transform="translate(60 0)">
+              <!-- 歯槽骨 -->
+              <path class="layer layer-bone" d="M10 330 C70 322 100 315 118 312 L282 312 C300 315 330 322 390 330 L390 500 L10 500 Z" fill="url(#g-bone)"/>
+              <path class="layer layer-bone" d="M10 330 C70 322 100 315 118 312 L282 312 C300 315 330 322 390 330 L390 470 L10 470 Z" fill="url(#p-bone)" opacity="0.6"/>
+              <!-- 歯肉 -->
+              <path class="layer layer-gum" d="M10 292 C70 288 100 270 118 258 L282 258 C300 270 330 288 390 292 L390 334 C330 326 300 318 282 314 L118 314 C100 318 70 326 10 334 Z" fill="#7a4d48"/>
+              <!-- 歯の形は、横に少し広げて、どっしりした奥歯に -->
+              <g transform="translate(200 0) scale(1.3 1) translate(-200 0)">
+              <!-- 象牙質（歯の本体） -->
+              <path class="layer layer-dentin" d="M120 150 C118 90 150 62 178 70 C190 74 196 84 200 84 C204 84 210 74 222 70 C250 62 282 90 280 150 C279 200 272 240 266 262 C262 300 262 360 252 430 C248 470 226 476 222 440 C218 400 216 340 200 320 C184 340 182 400 178 440 C174 476 152 470 148 430 C138 360 138 300 134 262 C128 240 121 200 120 150 Z" fill="#dccaa6"/>
+              <!-- エナメル質 -->
+              <path class="layer layer-enamel" d="M120 150 C118 90 150 62 178 70 C190 74 196 84 200 84 C204 84 210 74 222 70 C250 62 282 90 280 150 C279 200 272 240 266 262 L252 250 C258 225 264 195 264 152 C264 104 240 84 222 88 C212 91 206 100 200 100 C194 100 188 91 178 88 C160 84 136 104 136 152 C136 195 142 225 148 250 L134 262 C128 240 121 200 120 150 Z" fill="url(#g-enamel)"/>
+              <!-- 歯髄（神経・血管）：細めにする -->
+              <path transform="translate(200 0) scale(0.82 1) translate(-200 0)" class="layer layer-pulp" d="M168 150 C168 132 178 126 186 136 C192 142 208 142 214 136 C222 126 232 132 232 150 C232 190 226 230 222 270 C220 320 222 380 230 430 C232 445 226 448 222 436 C212 390 210 330 206 300 C204 292 196 292 194 300 C190 330 188 390 178 436 C174 448 168 445 170 430 C178 380 180 320 178 270 C174 230 168 190 168 150 Z" fill="#b8746a"/>
+              </g>
+            </g>
+            <!-- 説明の線と番号 -->
+            <g class="anat-lines" fill="none" stroke="#b8924f" stroke-width="0.8">
+              <path d="M173 110 L120 110 L100 90"/>
+              <path d="M313 215 L420 215 L440 195"/>
+              <path d="M262 180 L292 150 L420 150 L440 130"/>
+              <path d="M410 305 L440 305 L460 285"/>
+              <path d="M110 420 L80 420 L60 400"/>
+            </g>
+            <g class="anat-dots" fill="#b8924f">
+              <circle cx="173" cy="110" r="3"/>
+              <circle cx="313" cy="215" r="3"/>
+              <circle cx="262" cy="180" r="3"/>
+              <circle cx="410" cy="305" r="3"/>
+              <circle cx="110" cy="420" r="3"/>
+            </g>
+            <g class="anat-nums" font-family="Inter Tight, sans-serif" font-size="13" fill="#9a7536" letter-spacing="2">
+              <text x="88" y="84">01</text>
+              <text x="434" y="190">02</text>
+              <text x="434" y="125">03</text>
+              <text x="454" y="280">04</text>
+              <text x="48" y="395">05</text>
+            </g>
+          </svg>
+          <figcaption>奥歯の断面（イラスト）</figcaption>
+        </figure>
+        <ol class="anat-list">
+          <li class="reveal"><span>01</span><div><h3>エナメル質</h3><p>歯のいちばん外側。人の体でもっとも硬い組織で、光を通す透明感が、歯の美しさをつくります。</p></div></li>
+          <li class="reveal"><span>02</span><div><h3>象牙質</h3><p>エナメル質の内側にある、歯の本体。少しやわらかく、ここまでむし歯が進むと、しみる症状が出やすくなります。</p></div></li>
+          <li class="reveal"><span>03</span><div><h3>歯髄（しずい）</h3><p>いわゆる「神経」。血管も通っていて、歯に栄養を送っています。できるだけ残すことが、歯を長持ちさせる鍵です。</p></div></li>
+          <li class="reveal"><span>04</span><div><h3>歯肉（しにく）</h3><p>歯ぐき。歯の根元を包んで守っています。歯周病は、ここの炎症からはじまります。</p></div></li>
+          <li class="reveal"><span>05</span><div><h3>歯槽骨（しそうこつ）</h3><p>歯を支える、あごの骨。建物の基礎のように、見えないところで歯を支えています。</p></div></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ===== SECTION 05：TECHNOLOGY（設備） ===== -->
+    <section id="technology" class="section technology">
+      <div class="sec-head reveal">
+        <p class="sec-index"><span>05</span>TECHNOLOGY</p>
+        <h2 class="sec-title">見えないところまで、<br class="sp-only">見るために。</h2>
+      </div>
+      <ul class="tech-list">
+        <li class="reveal">
+          <p class="tech-en">CT SCAN</p>
+          <h3>歯科用CT</h3>
+          <p>あごの骨や歯の根を立体的に撮影。レントゲンだけでは分からない部分まで確認します。</p>
+        </li>
+        <li class="reveal">
+          <p class="tech-en">MICROSCOPE</p>
+          <h3>マイクロスコープ</h3>
+          <p>肉眼の何倍にも拡大して治療。細かな部分まで見ながら、精密に処置します。</p>
+        </li>
+        <li class="reveal">
+          <p class="tech-en">3D SCANNER</p>
+          <h3>口腔内スキャナー</h3>
+          <p>型取りの粘土を使わず、カメラで歯の形を3Dデータに。苦しさが少なく、精度も高まります。</p>
+        </li>
+        <li class="reveal">
+          <p class="tech-en">PRIVATE ROOM</p>
+          <h3>完全個室の診療室</h3>
+          <p>周りを気にせず、相談や治療を受けていただける空間です。</p>
+        </li>
+      </ul>
+      <p class="note reveal">※見本サイトのため、設備は一例です。</p>
+    </section>
+
+    <!-- ===== SECTION 06：DOCTOR（医師紹介） ===== -->
+    <section id="doctor" class="section doctor">
+      <div class="sec-head reveal">
+        <p class="sec-index"><span>06</span>DOCTOR</p>
+        <h2 class="sec-title">医師紹介</h2>
+      </div>
+      <div class="doc-wrap">
+        <div class="doc-photo reveal" aria-hidden="true">
+          <span>PHOTO</span>
+        </div>
+        <div class="doc-body reveal">
+          <p class="doc-role">院長</p>
+          <p class="doc-name">氏名（仮）<span>NAME</span></p>
+          <p class="doc-message">「この歯を、10年後も自分の歯として使ってほしい」。<br>その想いで、一本一本と向き合っています。<br>不安なこと、気になることは、どんな小さなことでもご相談ください。</p>
+          <dl class="doc-career">
+            <div><dt>経歴</dt><dd>〇〇大学 歯学部 卒業（仮）<br>〇〇歯科医院 勤務（仮）<br>MER DOUCE DENTAL CLINIC 開院（仮）</dd></div>
+            <div><dt>所属</dt><dd>〇〇学会（仮）</dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SECTION 07：ACCESS（アクセス） ===== -->
+    <section id="access" class="section access">
+      <div class="sec-head reveal">
+        <p class="sec-index"><span>07</span>ACCESS</p>
+        <h2 class="sec-title">アクセス・診療時間</h2>
+      </div>
+      <div class="access-wrap">
+        <div class="access-info reveal">
+          <dl class="info-list">
+            <div><dt>住所</dt><dd>〒000-0000 東京都〇〇区〇〇 0-0-0（架空の住所です）</dd></div>
+            <div><dt>最寄り駅</dt><dd>〇〇駅 徒歩〇分（仮）</dd></div>
+            <div><dt>電話</dt><dd>03-0000-0000（架空）</dd></div>
+          </dl>
+          <table class="hours">
+            <caption>診療時間（仮）</caption>
+            <thead>
+              <tr><th scope="col">時間</th><th scope="col">月</th><th scope="col">火</th><th scope="col">水</th><th scope="col">木</th><th scope="col">金</th><th scope="col">土</th><th scope="col">日</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">10:00–13:00</th><td>●</td><td>●</td><td>●</td><td>—</td><td>●</td><td>●</td><td>—</td></tr>
+              <tr><th scope="row">14:30–19:00</th><td>●</td><td>●</td><td>●</td><td>—</td><td>●</td><td>▲</td><td>—</td></tr>
+            </tbody>
+          </table>
+          <p class="note">▲ 土曜の午後は 17:00 まで／休診日：木曜・日曜・祝日（仮）</p>
+        </div>
+        <div class="access-map reveal" aria-hidden="true">
+          <!-- 地図の代わりのイラスト（見本サイトのため、実際の地図は入れていません） -->
+          <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
+            <g class="map-road" fill="none" stroke="#3a352d" stroke-width="10">
+              <path d="M-10 90 L410 120"/>
+              <path d="M-10 230 L410 200"/>
+              <path d="M120 -10 L150 310"/>
+              <path d="M300 -10 L270 310"/>
+            </g>
+            <g class="map-street" fill="none" stroke="#2a2620" stroke-width="4">
+              <path d="M-10 160 L410 160"/>
+              <path d="M210 -10 L215 310"/>
+              <path d="M40 -10 L60 310"/>
+            </g>
+            <circle cx="213" cy="160" r="26" fill="#b8924f" opacity="0.18"/>
+            <circle cx="213" cy="160" r="7" fill="#b8924f"/>
+            <text x="230" y="150" font-family="Inter Tight, sans-serif" font-size="11" letter-spacing="3" fill="#9a7536">MER DOUCE</text>
+          </svg>
+          <p>地図（見本のためイメージ）</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SECTION 08：RESERVATION（ご予約） ===== -->
+    <section id="reservation" class="section reservation">
+      <div class="resv-inner reveal">
+        <p class="sec-index"><span>08</span>RESERVATION</p>
+        <h2 class="resv-title">あなたの歯の設計図を、<br>一緒に描きましょう。</h2>
+        <p class="resv-text">初めての方も、セカンドオピニオンの方も、お気軽にご相談ください。</p>
+        <div class="resv-actions">
+          <a href="#reservation" class="btn-gold" aria-disabled="true">WEBで予約する（見本）</a>
+          <p class="resv-tel"><span>TEL</span>03-0000-0000<small>（架空）</small></p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <a href="#top" class="logo footer-logo" aria-label="MER DOUCE DENTAL CLINIC トップへ">
+      <span class="logo-main">MER DOUCE</span>
+      <span class="logo-sub">DENTAL CLINIC</span>
+    </a>
+    <p class="footer-note">※当サイトはポートフォリオ用の見本サイトです。実在の医院とは関係ありません。</p>
+    <p class="footer-copy">© MER DOUCE DENTAL CLINIC (SAMPLE)</p>
+  </footer>
+
+  <script src="js/main.js?v=38" defer></script>
+</body>
+</html>
