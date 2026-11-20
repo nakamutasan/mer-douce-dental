@@ -5,6 +5,80 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>MER DOUCE DENTAL CLINIC | メール・ドゥース・デンタルクリニック</title>
   <meta name="description" content="MER DOUCE DENTAL CLINIC（ポートフォリオ用の見本サイトです）。美しさは、細部に宿る。">
+  <!-- 見本サイトなので、Google などの検索結果には出さない（URL を知っている人は見られます） -->
+  <meta name="robots" content="noindex">
+
+  <!-- 検索エンジン向け：このアドレスが正式なページです -->
+  <link rel="canonical" href="https://mer-douce-dental-mgmv.vercel.app/">
+
+  <!-- サイトのアイコン（ブラウザのタブ・スマホのホーム画面に出る） -->
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <meta name="theme-color" content="#e8d8bd">
+
+  <!-- SNS用の情報：LINE や Instagram でアドレスを送ると、写真つきのカードで表示される -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="MER DOUCE DENTAL CLINIC">
+  <meta property="og:title" content="MER DOUCE DENTAL CLINIC | メール・ドゥース・デンタルクリニック">
+  <meta property="og:description" content="MER DOUCE DENTAL CLINIC（ポートフォリオ用の見本サイトです）。美しさは、細部に宿る。">
+  <meta property="og:url" content="https://mer-douce-dental-mgmv.vercel.app/">
+  <meta property="og:image" content="https://mer-douce-dental-mgmv.vercel.app/images/ogp.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="ja_JP">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- 構造化データ：お店などの情報を Google が読み取りやすい形で書いたもの（住所・電話は架空です） -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Dentist",
+    "name": "MER DOUCE DENTAL CLINIC",
+    "description": "歯科医院（ポートフォリオ用の見本サイトです。住所・電話は架空です）。",
+    "telephone": "03-0000-0000",
+    "address": {
+      "@type": "PostalAddress",
+      "addressRegion": "東京都",
+      "streetAddress": "〇〇区〇〇 0-0-0",
+      "addressCountry": "JP"
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Friday",
+          "Saturday"
+        ],
+        "opens": "10:00",
+        "closes": "13:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Friday"
+        ],
+        "opens": "14:30",
+        "closes": "19:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Saturday"
+        ],
+        "opens": "14:30",
+        "closes": "17:00"
+      }
+    ],
+    "url": "https://mer-douce-dental-mgmv.vercel.app/",
+    "image": "https://mer-douce-dental-mgmv.vercel.app/images/ogp.jpg"
+  }
+  </script>
   <meta name="theme-color" content="#e9dcc6">
 
   <!-- 文字のデザイン（Google Fonts） -->
@@ -14,11 +88,11 @@
   <!-- 背景は、明るいシャンパンゴールド（光に包まれた、ゴージャスな空間） -->
   <script>
     document.documentElement.classList.add('theme-champagne');
-    // 最初の演出（オープニング）は、そのタブで初めて開いたときだけ。「動きを減らす」設定の人には出さない
+    // 最初の演出（オープニング）は、この端末で初めて開いたときだけ。「動きを減らす」設定の人には出さない
     try {
-      if (!sessionStorage.getItem('md-opened') && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      if (!localStorage.getItem('md-opened') && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
         document.documentElement.classList.add('opening-on');
-        sessionStorage.setItem('md-opened', '1');
+        localStorage.setItem('md-opened', '1');
       }
     } catch (e) {}
   </script>
